@@ -8,10 +8,7 @@ public class ReverseStringWithStringBuilder {
     }
 
     private static String reverse(String str) {
-        if(str.length() == 1) {
-            return str;
-        }
-
-        return str.substring(1) + str.charAt(0);
+        StringBuilder builder = new StringBuilder(str);
+        return builder.reverse().toString();
     }
 }

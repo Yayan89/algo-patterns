@@ -4,15 +4,13 @@ public class ReverseStringRecursion {
     private static String test = "I am in love with chocolate!";
 
     public static void main(String[] args) {
-        test.s
+        System.out.println(reverse(test));
     }
 
-    private static String reverse(int n) {
-        StringBuilder builder = new StringBuilder(test);
-
-        if(n == builder.length()) {
-            return null;
+    private static String reverse(String str) {
+        if(str.length() == 1 ) {
+            return str;
         }
-        return null;
+        return reverse(str.substring(1)) + str.charAt(0);
     }
 }

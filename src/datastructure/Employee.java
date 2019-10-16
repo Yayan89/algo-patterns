@@ -1,4 +1,4 @@
-package com.company.datastructure;
+package datastructure;
 
 import java.util.Objects;
 

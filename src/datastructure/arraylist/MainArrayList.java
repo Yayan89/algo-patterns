@@ -1,6 +1,6 @@
-package com.company.datastructure.arraylist;
+package datastructure.arraylist;
 
-import com.company.datastructure.Employee;
+import datastructure.Employee;
 
 import java.util.ArrayList;
 import java.util.List;

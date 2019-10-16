@@ -15,6 +15,8 @@ public class MainLinkedList {
         list.addToFront(employee2);
 
         list.printAll();
+
+        System.out.println(list.getSize());
     }
 }
 

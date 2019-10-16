@@ -28,6 +28,18 @@ public class EmployeeLinkedList {
         }
     }
 
+    public EmployeeNode removeFromFront() {
+        if(isEmpty()) return null;
+        EmployeeNode removedNode = head;
+        head = head.getNextNode();
+        size--;
+        return removedNode;
+    }
+
+    private boolean isEmpty() {
+        return head == null;
+    }
+
     public int getSize() {
         return size;
     }

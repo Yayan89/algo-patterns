@@ -12,6 +12,14 @@ public class EmployeeNode {
         this.employee = employee;
     }
 
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
     public EmployeeNode getNextNode() {
         return nextNode;
     }

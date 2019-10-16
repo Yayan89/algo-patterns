@@ -13,7 +13,7 @@ public class EmployeeDoubleLinkedList {
         //objectNode that will contain data
         EmployeeNode node = new EmployeeNode(employee);
 
-        if(head == null) {
+        if (head == null) {
             tail = node;
         } else {
             node.setNextNode(head);
@@ -29,7 +29,7 @@ public class EmployeeDoubleLinkedList {
         //objectNode that will contain the data
         EmployeeNode node = new EmployeeNode(employee);
 
-        if(tail == null) {
+        if (tail == null) {
             head = node;
         } else {
             node.setPreviousNode(tail);
@@ -42,10 +42,40 @@ public class EmployeeDoubleLinkedList {
         size++;
     }
 
-    public void printAll() {
+    //need to create O(1)
+    public boolean addBefore(Employee newEmployee, Employee existingEmployee) {
+        if(head == null) {
+            return false;
+        }
+
+        EmployeeNode current = head;
+        while(!current.getEmployee().equals(existingEmployee)) {
+            current = current.getNextNode();
+        }
+
+        //once you get the right newNode
+        EmployeeNode newNode = new EmployeeNode(newEmployee);
+        newNode.setPreviousNode(current.getPreviousNode());
+        newNode.setNextNode(current);
+
+        EmployeeNode previousNode = current.getPreviousNode();
+        previousNode.setNextNode(newNode);
+        current.setPreviousNode(newNode);
+
+        //if there is only 1 node
+        if(head == current) {
+            head = newNode;
+        }
+
+        size++;
+        return true;
+    }
+
+
+    public void printAll () {
         EmployeeNode current = head;
         System.out.print("HEAD -> ");
-        while(current != null) {
+        while (current != null) {
             System.out.print(current);
             System.out.print(" <=> ");
             current = current.getNextNode();
@@ -53,14 +83,14 @@ public class EmployeeDoubleLinkedList {
         System.out.println("null");
     }
 
-    public EmployeeNode removeFromFront() {
-        if(head == null)  {
+    public EmployeeNode removeFromFront () {
+        if (head == null) {
             return null;
         }
 
         EmployeeNode removedNode = head;
 
-        if(head.getNextNode() == null) {
+        if (head.getNextNode() == null) {
             tail = null;
         } else {
             head.getNextNode().setPreviousNode(null);
@@ -71,8 +101,8 @@ public class EmployeeDoubleLinkedList {
         return removedNode;
     }
 
-    public EmployeeNode removeFrontEnd() {
-        if(tail == null) {
+    public EmployeeNode removeFrontEnd () {
+        if (tail == null) {
             return null;
         }
 
@@ -89,7 +119,7 @@ public class EmployeeDoubleLinkedList {
         return removeNode;
     }
 
-    public int getSize() {
+    public int getSize () {
         return size;
     }
 }

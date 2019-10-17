@@ -14,30 +14,27 @@ public class IntegerLinkedList {
         }
 
         // [1,2,3,4,5]  inert @ head
-        if(head.getNumber() > node.getNumber()) {
+        if(head !=null && head.getNumber() > number) {
             node.setNextNode(head);
             head = node;
             return true;
         }
 
         // [1,2,3,4,5]  insert @ tail
-        if(tail.getNumber() < node.getNumber()) {
+        if(tail.getNumber() < number) {
             tail.setNextNode(node);
             tail = node;
             return true;
         }
 
         // [4,7,10] insert [8], need to sort
-        if( head.getNumber() < node.getNumber() && tail.getNumber() > node.getNumber()) {
-            IntegerNode current = head;
-            while (current.getNumber() <= node.getNumber() && current.getNextNode().getNumber() <= node.getNumber()) {
-                current = current.getNextNode();
-            }
-            node.setNextNode(current.getNextNode());
-            current.setNextNode(node);
-            return true;
+        IntegerNode current = head;
+        while (current.getNumber() <= number && current.getNextNode().getNumber() <= number) {
+            current = current.getNextNode();
         }
-        return false;
+        node.setNextNode(current.getNextNode());
+        current.setNextNode(node);
+        return true;
     }
 
     public void printAll() {

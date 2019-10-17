@@ -7,8 +7,9 @@ public class MainIntegerLinkedList {
         list.insertSorted(6);
         list.insertSorted(10);
         list.insertSorted(1);
-        list.insertSorted(11);
+        list.insertSorted(12);
         list.insertSorted(8);
+        list.insertSorted(11);
 
         list.printAll();
     }

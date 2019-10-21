@@ -45,6 +45,8 @@ public class ArrayQueue {
         if(size() == 0) {
             front = 0;
             back = 0;
+        } else if (front == queue.length) {
+            front = 0;
         }
         return employee;
     }
@@ -57,7 +59,12 @@ public class ArrayQueue {
     }
 
     public int size() {
-        return back - front;
+        if(front <= back) {
+            return back - front;
+        }
+        else {
+            return back - front + queue.length;
+        }
     }
 
     public void printAll() {

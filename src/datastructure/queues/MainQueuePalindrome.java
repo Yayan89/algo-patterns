@@ -24,5 +24,6 @@ public class MainQueuePalindrome {
                 stack.push(c);
             }
         }
+        return true;
     }
 }

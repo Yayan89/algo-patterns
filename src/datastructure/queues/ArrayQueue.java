@@ -2,7 +2,6 @@ package datastructure.queues;
 
 import datastructure.Employee;
 
-import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class ArrayQueue {
@@ -14,12 +13,23 @@ public class ArrayQueue {
     }
 
     public void add(Employee employee) {
-        if (back == queue.length) {
-            queue = Arrays.copyOf(queue, queue.length * 2);
+        if (size() == queue.length - 1) {
+            int numItems = size();
+            Employee[] newArray = new Employee[2 * queue.length];
+            System.arraycopy(queue, front, newArray, 0, queue.length - front);
+            System.arraycopy(queue, 0, newArray, queue.length - front, back);
+            queue = newArray;
+            front = 0;
+            back = numItems;
         }
 
         queue[back] = employee;
-        back++;
+
+        if(back < queue.length -1) {
+            back++;
+        } else {
+            back = 0;
+        }
     }
 
     public Employee remove() {
@@ -51,8 +61,8 @@ public class ArrayQueue {
     }
 
     public void printAll() {
-        for(int i = 0; i < back; i++) {
-            System.out.println(queue[i]);
+        for(Employee emp : queue) {
+            System.out.println(emp);
         }
     }
 }

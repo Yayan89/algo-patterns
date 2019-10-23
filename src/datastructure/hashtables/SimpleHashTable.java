@@ -17,7 +17,20 @@ public class SimpleHashTable {
     public void put(String key, Employee employee) {
         int hashedKey = hashKey(key);
 
-        if (hashTable[hashedKey] != null) {
+        if(occupied(hashedKey)) {
+            int stopIndex = hashedKey;
+            if(stopIndex == hashTable.length - 1) {
+                hashedKey = 0;
+            } else {
+                hashedKey++;
+            }
+
+            // not null &&
+            while(occupied(hashedKey) && hashedKey != stopIndex) {
+                hashedKey = (hashedKey + 1) % hashTable.length;
+            }
+        }
+        if (occupied(hashedKey)) {
             System.out.println("Sorry, there's already an employee at this position " + hashedKey);
         } else {
             hashTable[hashedKey] = employee;
@@ -33,5 +46,9 @@ public class SimpleHashTable {
         for (Employee employee : hashTable) {
             System.out.println(employee);
         }
+    }
+
+    private boolean occupied(int index) {
+        return hashTable[index] != null;
     }
 }

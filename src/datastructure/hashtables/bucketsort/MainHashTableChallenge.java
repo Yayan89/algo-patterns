@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.stream.IntStream;
 
-public class Main2 {
+public class MainHashTableChallenge {
     public static void main(String[] args) {
 
         LinkedList<Employee> list = new LinkedList<>();

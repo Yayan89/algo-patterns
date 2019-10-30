@@ -50,7 +50,7 @@ public class SimpleHashTable {
 
     public Employee get(String key) {
         int hashedKey = findKey(key);
-        if(hashedKey == -1) {
+        if (hashedKey == -1) {
             return null;
         }
         return hashTable[hashedKey].getEmployee();
@@ -80,16 +80,17 @@ public class SimpleHashTable {
             hashedKey = (hashedKey + 1) % hashTable.length;
         }
 
-        if(stopIndex == hashedKey) {
-            return -1;
-        } else {
+        if (hashTable[hashedKey] != null
+                && hashTable[hashedKey].getKey().equals(key)) {
             return hashedKey;
+        } else {
+            return -1;
         }
     }
 
     public void printHashTable() {
-        for(int i = 0; i < hashTable.length; i++) {
-            if(hashTable[i] == null) {
+        for (int i = 0; i < hashTable.length; i++) {
+            if (hashTable[i] == null) {
                 System.out.println("null");
             } else {
                 System.out.println(hashTable[i].getEmployee());
@@ -99,5 +100,17 @@ public class SimpleHashTable {
 
     private boolean occupied(int index) {
         return hashTable[index] != null;
+    }
+
+    public Employee remove(String key) {
+        int hashKey = findKey(key);
+
+        if (hashKey == -1) {
+            return null;
+        }
+
+        Employee employee = hashTable[hashKey].getEmployee();
+        hashTable[hashKey] = null;
+        return employee;
     }
 }

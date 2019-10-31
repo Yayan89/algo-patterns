@@ -22,6 +22,7 @@ public class MainBucketSort {
         //            buckets[i] = new ArrayList<Integer>();
         Arrays.fill(buckets, new LinkedList<Integer>());
 
+        //for the case of 95 & 92, it will be added in the same LinkedList
         for (int item : input) {
             buckets[hash(item)].add(item);
         }

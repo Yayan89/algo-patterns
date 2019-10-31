@@ -53,7 +53,11 @@ public class ChainedHashTable {
         }
     }
 
+    /**
+     * hashKey must always be modulus by data size
+     */
     private int hashKey(String key) {
-        return key.length() % hashtable.length;
+//        return key.length() % hashtable.length;
+        return Math.abs(key.hashCode()) % hashtable.length;
     }
 }

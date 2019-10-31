@@ -1,32 +1,41 @@
 package datastructure.hashtables.bucketsort;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class MainBucketSort {
     public static void main(String[] args) {
-        int[] intArray = { 54, 46, 83, 66, 95, 92, 43 };
+        int[] intArray = {54, 46, 83, 66, 95, 92, 43};
 
         bucketSort(intArray);
 
-        for(int i = 0; i < intArray.length; i++) {
-            System.out.println(intArray[i]);
+        for (int value : intArray) {
+            System.out.println(value);
         }
     }
 
     private static void bucketSort(int[] input) {
+        @SuppressWarnings("unchecked")
         List<Integer>[] buckets = new List[10];
 
-        Arrays.fill(buckets, new ArrayList<>());
+        // using linked lists for the buckets
+        // using arraylists as the buckets
+        //            buckets[i] = new ArrayList<Integer>();
+        Arrays.fill(buckets, new LinkedList<Integer>());
 
-        for (int value : input) {
-            buckets[hash(value)].add(value);
+        for (int item : input) {
+            buckets[hash(item)].add(item);
         }
 
-        for(List<Integer> bucket : buckets) {
+        for (List bucket : buckets) {
             Collections.sort(bucket);
+        }
+
+        int j = 0;
+        for (List<Integer> bucket : buckets) {
+            for (int value : bucket) {
+                input[j++] = value;
+            }
+            j = 0;
         }
     }
 

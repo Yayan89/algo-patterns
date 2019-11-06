@@ -6,5 +6,7 @@ public class DoSomething {
         System.out.println("Cerrypick anoter time me");
         System.out.println("Cerrypick me");
         System.out.println("from branch 1");
+        System.out.println("squash this 1");
+        System.out.println("squash this 2");
     }
 }

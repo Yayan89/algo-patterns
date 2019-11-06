@@ -11,5 +11,6 @@ public class DoSomething {
         System.out.println("is this going to replaced by stash?");
         System.out.println("stash");
         System.out.println("stash");
+        System.out.println("from the main branch");
     }
 }

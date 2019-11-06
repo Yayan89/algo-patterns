@@ -9,5 +9,7 @@ public class DoSomething {
         System.out.println("squash this 1");
         System.out.println("squash this 2");
         System.out.println("is this going to replaced by stash?");
+        System.out.println("stash");
+        System.out.println("stash");
     }
 }

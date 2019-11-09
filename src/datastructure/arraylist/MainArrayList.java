@@ -13,5 +13,9 @@ public class MainArrayList {
         employees.add(new Employee("Gandalf", "THe Great", 9823));
 
         employees.forEach(System.out::println);
+
+        /*
+               We need to keep this all the time. I am tech lead!
+         */
     }
 }

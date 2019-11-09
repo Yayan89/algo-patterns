@@ -16,6 +16,15 @@ public class MainArrayList {
 
         /*
                We need to keep this all the time. I am tech lead!
+               等你等你
          */
+    }
+
+    private void doNothing() {
+        return;
+    }
+
+    private void moreOfDoNothing() {
+        return;
     }
 }

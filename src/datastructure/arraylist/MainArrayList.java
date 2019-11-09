@@ -7,11 +7,6 @@ import java.util.List;
 
 public class MainArrayList {
     public static void main(String[] args) {
-        List<Employee> employees = new ArrayList<>();
-        employees.add(new Employee("John", "Doe", 123));
-        employees.add(new Employee("Mike", "Harry", 4567));
-        employees.add(new Employee("Gandalf", "THe Great", 9823));
-
-        employees.forEach(System.out::println);
+        //I hate everything I do! I just like to code like no tomorrow!
     }
 }

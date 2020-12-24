@@ -1,6 +1,5 @@
 package datastructure.trees;
 
-import com.sun.deploy.config.JREInfo;
 
 public class TreeNode {
     private int data;

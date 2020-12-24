@@ -1,4 +1,4 @@
-package ValidateSubsequence;
+package arrays.validatesubsequence;
 
 import java.util.List;
 

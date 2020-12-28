@@ -11,20 +11,20 @@ public class Main {
         List<Integer[]> integers = threeNumberSum3(array, targetSum);
         integers.forEach(integers1 -> System.out.println(Arrays.toString(integers1)));
 
-        array = new int[] {1, 2, 3};
-        targetSum = 6;
-        integers = threeNumberSum3(array, targetSum);
-        integers.forEach(integers1 -> System.out.println(Arrays.toString(integers1)));
-
-        array = new int[] {1, 2, 3};
-        targetSum = 7;
-        integers = threeNumberSum3(array, targetSum);
-        integers.forEach(integers1 -> System.out.println(Arrays.toString(integers1)));
-
-        array = new int[] {8, 10, -2, 49, 14};
-        targetSum = 57;
-        integers = threeNumberSum3(array, targetSum);
-        integers.forEach(integers1 -> System.out.println(Arrays.toString(integers1)));
+//        array = new int[] {1, 2, 3};
+//        targetSum = 6;
+//        integers = threeNumberSum3(array, targetSum);
+//        integers.forEach(integers1 -> System.out.println(Arrays.toString(integers1)));
+//
+//        array = new int[] {1, 2, 3};
+//        targetSum = 7;
+//        integers = threeNumberSum3(array, targetSum);
+//        integers.forEach(integers1 -> System.out.println(Arrays.toString(integers1)));
+//
+//        array = new int[] {8, 10, -2, 49, 14};
+//        targetSum = 57;
+//        integers = threeNumberSum3(array, targetSum);
+//        integers.forEach(integers1 -> System.out.println(Arrays.toString(integers1)));
     }
 
     public static List<Integer[]> threeNumberSum(int[] array, int targetSum) {
@@ -89,6 +89,11 @@ public class Main {
         //O(N^2) T
         //O(N) S
         for (int i = 0; i < array.length - 2; i++) {
+            /*
+            why array.length-2?
+            when i=5, all good, left=6,  left=7
+            when i=6, we can skip, left=7, right=7.... (6+12+12) not going in TRIPLETS
+            */
             int left = i + 1;
             int right = array.length - 1;
 

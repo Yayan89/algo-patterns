@@ -9,12 +9,10 @@ public class Main {
         //example [28,26] smallest difference
         System.out.println(Arrays.toString(smallestDifference1(arrayOne, arrayTwo)));
 
-//        System.out.println(Arrays.toString(smallestDifference(arrayOne, arrayTwo)));
-
-//        arrayOne = new int[] {10, 1000, 9124, 2142, 59, 24, 596, 591, 124, -123};
-//        arrayTwo = new int[] {-1441, -124, -25, 1014, 1500, 660, 410, 245, 530};
-//        //[-123,-124]
-//        System.out.println(Arrays.toString(smallestDifference1(arrayOne, arrayTwo)));
+        arrayOne = new int[] {10, 1000, 9124, 2142, 59, 24, 596, 591, 124, -123};
+        arrayTwo = new int[] {-1441, -124, -25, 1014, 1500, 660, 410, 245, 530};
+        //[-123,-124]
+        System.out.println(Arrays.toString(smallestDifference1(arrayOne, arrayTwo)));
 
     }
 
@@ -38,27 +36,36 @@ public class Main {
     }
 
     public static int[] smallestDifference1(int[] arrayOne, int[] arrayTwo) {
-        //what happens if we sort?
-//        {-1, 3, 5, 10, 20, 28}
-//        {15, 17, 26, 134, 135}
-        [28, 26]
-
         Arrays.sort(arrayOne);
         Arrays.sort(arrayTwo);
 
-        int arrayOneIndex = 0;
-        int arrayTwoIndex = 0;
+        //O(Nlog(N)) + Mlog(M) T
+        //O(1) S
+        int indexOne = 0;
+        int indexTwo = 0;
+        int smallest = Integer.MAX_VALUE;
+        int current;
+        int[] smallestPair = new int[2];
 
-        while (arrayOne[arrayOneIndex] < arrayTwo[arrayTwoIndex]) {
-            arrayOneIndex++;
+        while (indexOne < arrayOne.length && indexTwo < arrayTwo.length) {
+            int firstNum = arrayOne[indexOne];
+            int secondNum = arrayTwo[indexTwo];
+
+            if (firstNum < secondNum) {
+                current = secondNum - firstNum;
+                indexOne++;
+            } else if (secondNum < firstNum) {
+                current = firstNum - secondNum;
+                indexTwo++;
+            } else {
+                return new int[] {firstNum, secondNum};
+            }
+
+            if (smallest > current) {
+                smallest = current;
+                smallestPair = new int[] {firstNum, secondNum};
+            }
         }
-
-        while (arrayOne[arrayOneIndex] > arrayTwo[arrayTwoIndex]) {
-            arrayTwoIndex++;
-
-            if(arrayOne[arrayOneIndex + 1] +)
-        }
-
-        return new int[] {arrayOne[arrayOneIndex], arrayTwo[arrayTwoIndex]};
+        return smallestPair;
     }
 }

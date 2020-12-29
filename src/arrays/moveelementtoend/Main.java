@@ -54,6 +54,7 @@ public class Main {
         int j = array.size() - 1;
 
         while (i < j) {
+            //good while-condition
             while (i < j && array.get(j) == toMove) {
                 j--;
             }

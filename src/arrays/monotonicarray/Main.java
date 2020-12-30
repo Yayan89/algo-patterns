@@ -9,10 +9,10 @@ public class Main {
         System.out.println(isMonotonic(array));
 
         array = new int[] {1, 2, 0};
-        System.out.println(isMonotonic(array));
+        System.out.println(isMonotonic1(array));
 
         array = new int[] {1, 1, 1, 2};
-        System.out.println(isMonotonic(array));
+        System.out.println(isMonotonic1(array));
     }
 
     public static boolean isMonotonic(int[] array) {
@@ -40,5 +40,20 @@ public class Main {
             return difference < 0;
         }
         return difference > 0;
+    }
+
+    public static boolean isMonotonic1(int[] array) {
+        var isNonDecreasing = true;
+        var isNonIncreasing = true;
+
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < array[i - 1]) {
+                isNonDecreasing = false;
+            }
+            if (array[i] > array[i - 1]) {
+                isNonIncreasing = false;
+            }
+        }
+        return isNonDecreasing || isNonIncreasing;
     }
 }

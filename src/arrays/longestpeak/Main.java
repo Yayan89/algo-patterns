@@ -23,6 +23,8 @@ public class Main {
     }
 
     public static int longestPeak(int[] array) {
+        //O(N) S
+        //O(1) T
         int longestPeakLength = 0;
         int i = 1;
 

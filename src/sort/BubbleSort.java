@@ -6,23 +6,35 @@ public class BubbleSort {
     // [20,-15,7,35,1,-22,55]
     public static void main(String[] args) {
         int[] array = {20, 35, -15, 7, 1, 55, -22};
-        sort(array);
+        System.out.println(Arrays.toString(sort(array)));
     }
 
-    private static void sort(int[] array) {
-
-        //1. get the whole array and decrease by 1 after each turn
-        for (int i = array.length - 1; i > 0; i--) {
-            //2. for each element in array but max k = 5
-            for (int k = 0; k < i; k++) {
-                if (array[k] > array[k + 1]) {
-                    int holder = array[k]; //20
-                    array[k] = array[k+1]; //
-                    array[k+1] = holder;
-                }
-            }
+    //Best O(N) time O(1) Space
+    //Worst O(N^2) O(1)
+    private static int[] sort(int[] array) {
+        if (array.length == 0) {
+            return new int[] {};
         }
 
-        System.out.println(Arrays.toString(array));
+        boolean isSorted = false;
+        int counter = 0;
+
+        while (!isSorted) {
+            isSorted = true;
+
+            for (int i = 0; i < array.length - 1 - counter; i++) {
+                if(array[i] > array[i+1]) {
+                    int holder = array[i+1];
+                    array[i+1] = array[i];
+                    array[i] = holder;
+
+                    isSorted = false;
+                }
+            }
+            counter++;
+        }
+        return array;
     }
+
+
 }
